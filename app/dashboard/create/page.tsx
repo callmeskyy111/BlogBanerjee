@@ -1,5 +1,6 @@
 //import { prisma } from "@/app/utils/db";
-import { Button } from "@/components/ui/button";
+import { handleSubmission } from "@/app/actions";
+import SubmitButton from "@/components/general/SubmitButton";
 import {
   Card,
   CardContent,
@@ -13,7 +14,6 @@ import { Textarea } from "@/components/ui/textarea";
 import React from "react";
 
 function CreateBlogRoute() {
-
   return (
     <div>
       <Card className="max-w-lg mx-auto">
@@ -24,20 +24,20 @@ function CreateBlogRoute() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form className="flex flex-col gap-4">
+          <form className="flex flex-col gap-4" action={handleSubmission}>
             <div className="flex flex-col gap-2">
               <Label>Title</Label>
-              <Input required type="text" placeholder="Enter the title.." />
+              <Input required type="text" placeholder="Enter the title.." name="title"/>
             </div>
             <div className="flex flex-col gap-2">
               <Label>Content</Label>
-              <Textarea required placeholder="content.." />
+              <Textarea required placeholder="content.." name="content"/>
             </div>
             <div className="flex flex-col gap-2">
               <Label>Image URL</Label>
-              <Input type="url" placeholder="Image URL.." required />
+              <Input type="url" placeholder="Image URL.." required name="url"/>
             </div>
-            <Button>Create Post</Button>
+            <SubmitButton/>
           </form>
         </CardContent>
       </Card>
