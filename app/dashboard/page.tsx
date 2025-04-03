@@ -1,11 +1,10 @@
-import React from "react";
-
-function Dashboard() {
-  return (
-    <div>
-      <h1 className="text-green-600 text-3xl">Hello from the DashboardPage!</h1>
-    </div>
-  );
+function DashboardRoute() {
+//   const { getUser } = getKindeServerSession();
+//   const user = await getUser();
+//   if (!user) {
+//     return redirect("/api/auth/register"); //can only be used with server-components
+//   }
+  return <div>Hello From Dashboard</div>;
 }
 
-export default Dashboard;
+export default DashboardRoute;
