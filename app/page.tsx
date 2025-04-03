@@ -3,6 +3,8 @@ import { prisma } from "./utils/db";
 import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 
+export const revalidate = 120;
+
 async function getData() {
   const data = await prisma.blogPost.findMany({
     select: {
@@ -24,7 +26,7 @@ export default function Home() {
   return (
     <div className="py-6">
       <h1 className="text-3xl tracking-tight mb-8">Latest Posts</h1>
-      <Suspense fallback={<BlogPostsGrid/>}>
+      <Suspense fallback={<BlogPostsGrid />}>
         <BlogPosts />
       </Suspense>
     </div>
@@ -51,8 +53,7 @@ function BlogPostsGrid() {
       {Array.from({ length: 6 }).map((_, index) => (
         <div
           className="rounded-lg border bg-card text-card-foreground shadow-sm h-[400px] flex flex-col overflow-hidden"
-          key={index}
-        >
+          key={index}>
           {/* Image skeleton */}
           <Skeleton className="h-48 w-full rounded-none" />
 
